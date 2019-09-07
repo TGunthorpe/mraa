@@ -1,6 +1,7 @@
 /*
  * Author: Thomas Ingleby <thomas.c.ingleby@intel.com>
  * Author: Michael Ring <mail@michael-ring.org>
+ * Author: Tom Gunthorpe <tom@rfit.com.au> // Pico-pi
  * Copyright (c) 2014 Intel Corporation.
  *
  * Permission is hereby granted, free of charge, to any person obtaining
@@ -32,6 +33,9 @@
 #include "arm/banana.h"
 #include "arm/beaglebone.h"
 #include "arm/phyboard.h"
+#include "arm/pico_pi_imx6.h"
+#include "arm/pico_pi_imx7.h"
+#include "arm/pico_pi_imx8.h"
 #include "arm/raspberry_pi.h"
 #include "mraa_internal.h"
 
@@ -95,8 +99,7 @@ mraa_arm_platform()
             platform_type = MRAA_96BOARDS;
         else if (mraa_file_contains("/proc/device-tree/compatible", "arrow,apq8096-db820c"))
             platform_type = MRAA_96BOARDS;
-        else if (mraa_file_contains("/proc/device-tree/model",
-                                    "HiKey Development Board"))
+        else if (mraa_file_contains("/proc/device-tree/model", "HiKey Development Board"))
             platform_type = MRAA_96BOARDS;
         else if (mraa_file_contains("/proc/device-tree/model", "HiKey960"))
             platform_type = MRAA_96BOARDS;
@@ -110,6 +113,12 @@ mraa_arm_platform()
             platform_type = MRAA_ROCKPI4;
         else if (mraa_file_contains("/proc/device-tree/compatible", "raspberrypi,"))
             platform_type = MRAA_RASPBERRY_PI;
+	else if (mraa_file_contains_both("/proc/device-tree/model", "PICO-IMX6", " PI ")) {
+            platform_type = MRAA_PICO_PI_IMX6;
+	else if (mraa_file_contains_both("/proc/device-tree/model", "PICO-IMX7", " PI ")) {
+            platform_type = MRAA_PICO_PI_IMX7;
+	else if (mraa_file_contains_both("/proc/device-tree/model", "PICO-IMX8", " PI ")) {
+            platform_type = MRAA_PICO_PI_IMX8;
     }
 
     switch (platform_type) {
@@ -133,6 +142,15 @@ mraa_arm_platform()
             break;
         case MRAA_DE_NANO_SOC:
             plat = mraa_de_nano_soc();
+            break;
+	case MRAA_PICO_PI_IMX6:
+            plat = mraa_pico_pi_imx6();
+            break;
+	case MRAA_PICO_PI_IMX7:
+            plat = mraa_pico_pi_imx7();
+            break;
+	case MRAA_PICO_PI_IMX8:
+            plat = mraa_pico_pi_imx8();
             break;
         default:
             plat = NULL;
