@@ -161,7 +161,7 @@ mraa_pico_pi_imx6(void)
     technexion_add_power_pin(b, "5V", 4);
     technexion_add_power_pin(b, "GND", 5);
     technexion_add_power_pin(b, "5V", 6);
-    // 7 NC
+    // MSIC_SLPCLK_2
     technexion_add_power_pin(b, "3V3", 8);
     technexion_add_power_pin(b, "GND", 9);
     technexion_add_power_pin(b, "3V3", 10);
@@ -171,7 +171,15 @@ mraa_pico_pi_imx6(void)
     technexion_add_power_pin(b, "5V", 14);
     technexion_add_power_pin(b, "GND", 15);
     
-    technexion_add_uart(b, "PI_UART", 8, 10, 7, 12, "/dev/ttymxc5");
+    technexion_add_gpio(b, "USB_OTG_DP", 16, 16);
+    technexion_add_gpio(b, "ON_OFF", 17, 17);
+    technexion_add_gpio(b, "USB_OTG_DN", 18, 18);
+    technexion_add_gpio(b, "FAULT", 19, 19);
+    technexion_add_gpio(b, "USB_OTG_VBUS", 20, 20);
+    technexion_add_gpio(b, "USB_OTG_PWR_EN", 21, 21);
+    
+    technexion_add_uart(b, "UART1", 22, 27, 0, 0, "/dev/ttymxc2");
+    // VBAT_BKUP
     technexion_add_power_pin(b, "GND", 9);
 
     technexion_add_pwm(b, "PI_PWM_P11", 11, 0);
