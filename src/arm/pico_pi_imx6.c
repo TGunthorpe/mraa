@@ -125,7 +125,7 @@ technexion_add_pwm(mraa_board_t *b, const char *name, int pin, int number) {
     snprintf(b->pins[pin].name, MRAA_PIN_NAME_SIZE, "%s", name);
 }
 
-/* pins 1-40 are raspberry pi style connector on PI baseboard 
+/* pins 1-40 are Intel Edison style connector on PI baseboard 
    pins 41-56 is the Mikrobus connector on the PI baseboard
 */
 
@@ -153,13 +153,24 @@ mraa_pico_pi_imx6(void)
 
     /* TODO: fix all GPIO / bus numbers */
 
-    /* 40-pin Raspberry PI style connector */
+    /* 40-pin Intel Edison style connector */
     /* pins 16, 18, 38, 40 omitted since MRAA does not (yet?) support CAN buses */
-    technexion_add_power_pin(b, "3V3", 1);
+    technexion_add_power_pin(b, "GND", 1);  // 3V3
     technexion_add_power_pin(b, "5V", 2);
-    technexion_add_i2c_bus(b, "PI_I2C1", 3, 5, 0);
+    technexion_add_gpio(b, "USB_ID", 3);    //_i2c_bus PI_I2C1
     technexion_add_power_pin(b, "5V", 4);
-    technexion_add_power_pin(b, "GND", 6);
+    technexion_add_power_pin(b, "GND", 5);
+    technexion_add_power_pin(b, "5V", 6);
+    // 7 NC
+    technexion_add_power_pin(b, "3V3", 8);
+    technexion_add_power_pin(b, "GND", 9);
+    technexion_add_power_pin(b, "3V3", 10);
+    technexion_add_power_pin(b, "GND", 11);
+    technexion_add_power_pin(b, "1V8", 12);
+    technexion_add_power_pin(b, "GND", 13);
+    technexion_add_power_pin(b, "5V", 14);
+    technexion_add_power_pin(b, "GND", 15);
+    
     technexion_add_uart(b, "PI_UART", 8, 10, 7, 12, "/dev/ttymxc5");
     technexion_add_power_pin(b, "GND", 9);
 
