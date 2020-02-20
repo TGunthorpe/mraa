@@ -179,14 +179,10 @@ mraa_pico_pi_imx6(void)
     technexion_add_gpio(b, "USB_OTG_PWR_EN", 21, 21);
     
     technexion_add_uart(b, "UART1", 22, 27, 0, 0, "/dev/ttymxc2");
-    // VBAT_BKUP
-    technexion_add_power_pin(b, "GND", 9);
+    technexion_add_power_pin(b, "VBAT_BKUP", 23);
 
     technexion_add_pwm(b, "PI_PWM_P11", 11, 0);
     technexion_add_gpio(b, "PI_GPIO_P13", 13, 35);
-
-    technexion_add_power_pin(b, "3V3", 17);
-    technexion_add_power_pin(b, "GND", 20);
 
     technexion_add_spi_bus(b, "PI_SPI", 19, 21, 23, 24, 2);
     technexion_add_gpio(b, "PI_GPIO_P22", 22, -1);
@@ -214,8 +210,7 @@ mraa_pico_pi_imx6(void)
     technexion_add_gpio(b, "MBUS_RESET", 50, 26);
     technexion_add_uart(b, "MBUS_UART", 51, 52, -1, -1, "/dev/ttymxc5");
     technexion_add_i2c_bus(b, "MBUS_I2C", 53, 54, 0);
-    technexion_add_power_pin(b, "5V", 55);
-    technexion_add_power_pin(b, "GND", 56);
+
     b->def_i2c_bus = 0;
 
     /* This pointer is unused, but having it NULL would make i2c functions fail */
