@@ -114,8 +114,8 @@ mraa_arm_platform()
             platform_type = MRAA_RASPBERRY_PI;
 	else if (mraa_file_contains_both("/proc/device-tree/model", "PICO-IMX6", " PI ")) 
             platform_type = MRAA_PICO_PI_IMX6;
-	else if (mraa_file_contains_both("/proc/device-tree/model", "PICO-IMX7", " PI "))
-            platform_type = MRAA_PICO_PI_IMX7;
+//	else if (mraa_file_contains_both("/proc/device-tree/model", "PICO-IMX7", " PI "))
+//            platform_type = MRAA_PICO_PI_IMX7;
     }
 
     switch (platform_type) {
@@ -143,8 +143,8 @@ mraa_arm_platform()
 	case MRAA_PICO_PI_IMX6:
             plat = mraa_pico_pi_imx6();
             break;
-	case MRAA_PICO_PI_IMX7:
-            plat = mraa_pico_pi_imx7();
+//	case MRAA_PICO_PI_IMX7:
+//            plat = mraa_pico_pi_imx7();
             break;
         default:
             plat = NULL;
