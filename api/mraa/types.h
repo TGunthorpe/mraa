@@ -227,6 +227,11 @@ typedef enum {
     MRAA_ERROR_UART_OW_NO_DEVICES = 13,           /**< UART OW No devices detected */
     MRAA_ERROR_UART_OW_DATA_ERROR = 14,           /**< UART OW Data/Bus error detected */
 
+        
+	RFID_ERROR_PASSWORD_FAIL = 20,				  /**< Password does not match */
+	RFID_ERROR_INVALID_PARAMETER = 97,
+	RFID_ERROR_MODULE_FAILURE = 98,
+    
     MRAA_ERROR_UNSPECIFIED = 99 /**< Unknown Error */
 } mraa_result_t;
 
