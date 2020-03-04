@@ -32,6 +32,7 @@ extern "C" {
 #include "mraa/gpio.h"
 #include "mraa/spi.h"
 #include "mraa/i2c.h"
+#include "mraa/types.h"
 #include "mraa/uart.h"
 #include "mraa/uart_ow.h"
 #include "mraa/led.h"
