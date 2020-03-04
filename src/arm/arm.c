@@ -34,7 +34,7 @@
 #include "arm/beaglebone.h"
 #include "arm/phyboard.h"
 #include "arm/pico_pi_imx6.h"
-#include "arm/pico_pi_imx7.h"
+// #include "arm/pico_pi_imx7.h"
 #include "arm/raspberry_pi.h"
 #include "mraa_internal.h"
 
