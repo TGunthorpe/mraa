@@ -157,7 +157,7 @@ mraa_pico_pi_imx6(void)
     /* pins 16, 18, 38, 40 omitted since MRAA does not (yet?) support CAN buses */
     technexion_add_power_pin(b, "GND", 1);  // 3V3
     technexion_add_power_pin(b, "5V", 2);
-    technexion_add_gpio(b, "USB_ID", 3);    //_i2c_bus PI_I2C1
+    technexion_add_gpio(b, "USB_ID", 3, 3);    //_i2c_bus PI_I2C1
     technexion_add_power_pin(b, "5V", 4);
     technexion_add_power_pin(b, "GND", 5);
     technexion_add_power_pin(b, "5V", 6);
