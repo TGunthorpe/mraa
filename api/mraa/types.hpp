@@ -58,6 +58,9 @@ typedef enum {
     MTK_LINKIT = 17,           /**< Mediatek MT7688 based Linkit boards */
     MTK_OMEGA2 = 18,           /**< MT7688 based Onion Omega2 board */
     IEI_TANK = 19,             /**< IEI Tank System*/
+    PICO_PI_IMX6 = 21,         /**< TechNexion Pico PI iMX6Q */
+    PICO_PI_IMX7 = 22,         /**< TechNexion Pico PI iMX7D */
+    PICO_PI_IMX8 = 23,         /**< TechNexion Pico PI iMX8 */
 
     FTDI_FT4222 = 256,         /**< FTDI FT4222 USB to i2c bridge */
 
